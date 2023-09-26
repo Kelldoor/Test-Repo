@@ -1,7 +1,4 @@
-
 // Review this code as needed
-
-
 
 import 'package:flutter/material.dart';
 
@@ -38,32 +35,34 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isLoadingItemsFromDatabase = false;
 
   List<Item> items = [
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU002"),
-        Item("Some Item", 1, 1.99, "SKU003"),
-        Item("Some Item", 1, 1.99, "SKU004"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        Item("Some Item", 1, 1.99, "SKU001"),
-        // Commit new item
-        Item("Some Item", 1, 1.99, "SKU002"),
-        // New item
-        Item("Some Item", 2, 3.99, "SKU003")
-      ];
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU002"),
+    Item("Some Item", 1, 1.99, "SKU003"),
+    Item("Some Item", 1, 1.99, "SKU004"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    Item("Some Item", 1, 1.99, "SKU001"),
+    // Commit new item
+    Item("Some Item", 1, 1.99, "SKU002"),
+    // New item
+    Item("Some Item", 2, 3.99, "SKU003")
+  ];
+
+  List<NewItem> newItems = [
+    NewItem("Bob Herald", 22, 1.99, "SKU004")
+  ];
 
   void _handleButtonPress() {
     setState(() {
       //need setState for firstpage load
       pageFirstLoad = false;
       isLoadingItemsFromDatabase = true;
-
-      
     });
 
     Future.delayed(const Duration(seconds: 3), () {
@@ -98,7 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 : SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: items.map((item){ // for each item, the below stuff separates each item
+                      children: items.map((item) {
+                        // for each item, the below stuff separates each item
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
@@ -109,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text("Price: \$${item.Price.toStringAsFixed(2)}"),
                               Text("SKU: ${item.Sku}"),
                               const Divider()
-
                             ],
                           ),
                         );
@@ -128,4 +127,13 @@ class Item {
   String Sku;
 
   Item(this.Name, this.Id, this.Price, this.Sku);
+}
+
+class NewItem {
+  String FullName;
+  int NewId;
+  double NewPrice;
+  String NewSku;
+
+  NewItem(this.FullName, this.NewId, this.NewPrice, this.NewSku);
 }
