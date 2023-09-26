@@ -52,7 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
         Item("Some Item", 1, 1.99, "SKU001"),
         Item("Some Item", 1, 1.99, "SKU001"),
         // Commit new item
-        Item("Some Item", 1, 1.99, "SKU002")
+        Item("Some Item", 1, 1.99, "SKU002"),
+        // New item
+        Item("Some Item", 2, 3.99, "SKU003")
       ];
 
   void _handleButtonPress() {
